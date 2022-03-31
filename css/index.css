@@ -1,3 +1,8 @@
+@font-face {
+    font-family: font1; 
+    src: url(hwzs.TTF); 
+}
+
 .board
 {
     padding:10px;
@@ -45,7 +50,7 @@
     float:left;
     z-index:0;
     font-size:20px;
-    font-family: 华文中宋;
+    font-family: font1;
 }
 
 .container
