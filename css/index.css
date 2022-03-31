@@ -1,0 +1,64 @@
+.board
+{
+    padding:10px;
+    height:410px;
+    width:410px;
+    background-color:blanchedalmond;
+    float:left;
+    position:relative;
+    z-index:0;
+}
+
+.container{
+    max-width: 750px;
+}
+
+.control1
+{
+    margin-left: 10px;
+    padding:10px;
+    height:125px;
+    width:300px;
+    background-color:lightpink;
+    float:left;
+    z-index:0;
+}
+
+.control2
+{
+    margin-left: 10px;
+    padding:10px;
+    height:105px;
+    width:300px;
+    background-color:powderblue;
+    float:left;
+    z-index:0;
+}
+
+.info
+{
+    margin-left: 10px;
+    padding:10px;
+    height:180px;
+    width:300px;
+    background-color:khaki;
+    float:left;
+    z-index:0;
+    font-size:20px;
+    font-family: 华文中宋;
+}
+
+.container
+{
+    width:800px;
+}
+
+.intro
+{
+    float:left;
+    background-color:rgb(228,228,228);
+    height:110px;
+    width: 720px;
+    margin-bottom: 10px;
+    text-align: center;
+}

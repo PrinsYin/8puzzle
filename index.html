@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/detailed.css" />
+    <!-- 引用自定义css和bootstrap.js -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8 puzzle problem</title>
+</head>
+<body onload="init_graph()" style="background-color:rgb(228,228,228);">
+    <!-- 加载完页面调用初始化函数 -->
+    <div class="container" style="width:1000px;">
+        <div class="intro">
+            <font style="font-family:Comic Sans Ms; font-size:40px;">
+            Eight Puzzle Problem
+            </font>
+            
+            <br>
+            <font style="font-family:华文中宋; font-size:25px;">
+            2053408尹卓然
+            <br>
+
+            <br>
+        </font>
+        </div>
+
+        <br>
+        <div class="board">
+            <!-- board装载图形化的八数码 -->
+            <div id="b0" class="block0"></div>
+            <div id="b1" class="block" onclick="clickmove(1)">1</div>
+            <!-- 点击字符后调用点击移动函数 -->
+            <div id="b2" class="block" onclick="clickmove(2)">2</div>
+            <div id="b3" class="block" onclick="clickmove(3)">3</div>
+            <div id="b4" class="block" onclick="clickmove(4)">4</div>
+            <div id="b5" class="block" onclick="clickmove(5)">5</div>
+            <div id="b6" class="block" onclick="clickmove(6)">6</div>
+            <div id="b7" class="block" onclick="clickmove(7)">7</div>
+            <div id="b8" class="block" onclick="clickmove(8)">8</div>
+        </div>
+        <!-- 启发式函数选择部分 -->
+        <div class="control1">
+            选择搜索方式:
+            <br>
+            A*:
+            <button type="button" id="choose0" class="btn btn-default btn-common" onclick="choose0()">曼哈顿距离</button>
+            <button type="button" id="choose1" class="btn btn-default btn-common" onclick="choose1()">不在位棋子数</button>
+            <!-- <button type="button" id="lll" class="btn btn-primary btn-confirm" onclick="">确认！</button> -->
+            or:&nbsp;<button type="button" id="choose2" class="btn btn-default btn-common" onclick="choose2()">贪婪式搜索</button>
+            
+            
+            <button type="button" id="choose3" class="btn btn-default btn-common" onclick="choose3()">广度优先搜索</button>
+        </div>
+        <!-- 演示、重置部分 -->
+        <div class="control2">
+            <button type="button" id="auto" class="btn btn-default btn-common" onclick="autorun()" disabled="disabled">自动演示</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" id="pause" class="btn btn-warning" onclick="stopdraw()" disabled="disabled">暂停演示</button>
+            <button type="button" id="next" class="btn btn-default btn-common" onclick="drawnext()" disabled="disabled">进入下一步</button>&nbsp;&nbsp;&nbsp;
+            <button type="button" id="lll" class="btn btn-info" onclick="init_graph()">生成随机状态</button>
+        </div>
+        <div class="info" id="info">
+
+        </div>
+    </div>
+    <!-- 引用js文件 -->
+    <script src="js/viz.min.js"></script>
+    <!-- 图像显示和图像移动 -->
+    <script src="js/svg-pan-zoom.min.js"></script>
+    <!-- 初始化 -->
+    <script src="js/init.js"></script>
+    <!-- A*算法 -->
+    <script src="js/astar.js"></script>
+    <!-- 图像显示和图像移动 -->
+    <script src="js/display.js"></script>
+</body>
+</html>

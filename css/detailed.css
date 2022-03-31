@@ -1,0 +1,81 @@
+.block-right
+{
+    height: 110px;
+    width:110px;
+    border-radius: 5px;
+    background-color:lightgreen;
+    /* float:left; */
+    margin:10px;
+    z-index:9999;
+    font-family: "华文中宋";
+    font-size: 50px;
+    text-align: center;
+    line-height: 110px;
+    vertical-align:middle; 
+}
+
+.block-false
+{
+    height: 110px;
+    width:110px;
+    border-radius: 5px;
+    background-color:rgb(236, 147, 147);
+    /* float:left; */
+    margin:10px;
+    z-index:9999;
+    font-family: "华文中宋";
+    font-size: 50px;
+    text-align: center;
+    line-height: 110px;
+    vertical-align:middle; 
+}
+
+.block0
+{
+    height: 110px;
+    width:110px;
+    border-radius: 5px;
+    background-color:transparent;
+    /* float:left; */
+    margin:10px;
+    z-index:0;
+}
+
+.blockpass
+{
+    height: 110px;
+    width:110px;
+    border-radius: 5px;
+    /* float:left; */
+    margin:10px;
+    z-index:0;
+}
+
+.btn-confirm
+{
+    position:relative;
+    top:25px;
+    right:-20px;
+}
+
+.btn-common
+{
+    height:35px;
+    background-color: rgba(255, 255, 255, 0.342);
+    margin: 4px;
+    line-height: 20px;;
+}
+
+.btn-warning
+{
+    height:35px;
+    margin: 4px;
+    line-height: 20px;;
+}
+
+.btn-info
+{
+    height:35px;
+    margin: 4px;
+    line-height: 20px;;
+}

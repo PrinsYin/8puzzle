@@ -1,0 +1,17 @@
+{
+  "name": "8shuma",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "packager": "electron-packager ./ 8shuma --all --out ./OutApp --electron--version 17.2.0 --overwrite --icon=./image/1.ico"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron-packager": "^15.4.0"
+  }
+  
+}
