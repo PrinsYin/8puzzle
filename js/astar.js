@@ -147,7 +147,6 @@ class PriorityQueue//针对状态类构造优先队列结构
     get1()//获取队列头数据，时间复杂度O(1)
     {
         return this.queue[0];
-        
     }
 }
 
@@ -196,7 +195,7 @@ function     weii(i,j)//曼哈顿距离
             [2,2,3,4,3,2,1,0,1],
             [1,3,2,3,2,1,0,1,2],
             [2,4,3,2,1,0,1,2,3]];
-        return manhadun[i][j];
+        return 0;
     };
 
 class sta//存储状态的类，存储状态。深度、耗散值
@@ -378,7 +377,7 @@ class axing//A*算法类
             {
                 var a=q.get1();
                 q.pop1();
-                // console.log(a.sta)
+                 console.log(a.sta)
                 // console.log(a.f)
                 if(a.sta==en)
                     break;

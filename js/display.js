@@ -99,7 +99,7 @@ function autodraw()//自动演示函数，随时更新内容
             }
             current=l;
             var info=document.getElementById("info")
-         info.innerHTML=("·初始状态："+stt+"<br>·目标状态："+en+"<br>·搜索序列长度："+searchlength+"<br>·解序列长度："+solvelist.length+"<br>·当前耗散值："+idtof[statetoid[current]]);
+         info.innerHTML=("·初始状态："+stt+"<br>·目标状态："+en+"<br>·搜索序列长度："+searchlength+"<br>·解序列长度："+solvelist.length+"<br>·当前耗散值："+idtof[statetoid[current]]+"<br>·搜索花费时间："+searchtime+"ms");
     if(autoz<0)
     {
         info.innerHTML=("·已经达到目标状态！"+"<br>·初始状态："+stt+"<br>·搜索序列长度："+searchlength+"<br>·解序列长度："+solvelist.length+"<br>·当前耗散值："+idtof[statetoid[current]]);
@@ -175,7 +175,7 @@ function clickmove(x)//点击数字移动函数，判断移动的可行性并进
     {
         info.innerHTML=("·已经达到目标状态！")
     }
-    else if(!checkans(current))
+    else if(checkans(current)!=en_ni)
     {
         autoz=0;
         nextz=0;
@@ -224,6 +224,6 @@ function drawnext()//下一步单步演示函数
         return;
     }
     else
-        info.innerHTML=("·初始状态："+stt+"<br>·目标状态："+en+"<br>·搜索序列长度："+searchlength+"<br>·解序列长度："+solvelist.length+"<br>·当前耗散值："+idtof[statetoid[current]]);
+    ("·初始状态："+stt+"<br>·目标状态："+en+"<br>·搜索序列长度："+searchlength+"<br>·解序列长度："+solvelist.length+"<br>·当前耗散值："+idtof[statetoid[current]]+"<br>·搜索花费时间："+searchtime+"ms");
 }
 

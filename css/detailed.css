@@ -14,6 +14,23 @@
     vertical-align:middle; 
 }
 
+.form-block {
+    width: 42%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    height:30px;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+  }
+
 .block-false
 {
     height: 110px;
@@ -28,6 +45,14 @@
     text-align: center;
     line-height: 110px;
     vertical-align:middle; 
+}
+
+.subbutton
+{
+    position:absolute;
+    right:14px;
+    top:35px;
+    
 }
 
 .block0

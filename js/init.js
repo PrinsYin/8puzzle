@@ -19,6 +19,7 @@ b.push(b1);
 b1 = document.getElementById("b8")
 b.push(b1);
 // 获取其他html元素用于进一步变化
+var tre=document . querySelector("#treesvg");
 var c0=document.getElementById("choose0")
 var c1=document.getElementById("choose1")
 var c2=document.getElementById("choose2")
@@ -37,6 +38,7 @@ var array_right=//目标状态
     [8,0,4],
     [7,6,5]
 ]
+var searchtime;
 var stt;//起始状态
 posxi=[10,140,270];//用来进行方块移动等的定位
 posyi=[10,140,270];
@@ -45,11 +47,92 @@ posy=["10px","140px","270px"];
 var autoz;//自动演示的循环计数标志
 var nextz;//下一步演示的计数标志
 var timeout;//保存Timeout函数返回值并终止循环
+var en_ni=1;
 function stopdraw()//终止自动演示
 {
     console.log("stopdraw");
     clearTimeout(timeout)
     autorunning=0;
+}
+
+function loaddata()//加载输入的数据
+{
+    var typeinit=parseInt(document.getElementById("startstate").value);
+    var typeend=parseInt(document.getElementById("endstate").value);
+    var l=[0,0,0,0,0,0,0,0,0,1];
+    var s=typeinit;
+    var flag=0;
+    console.log(typeinit)
+    if(isNaN(s)&&flag!=1)
+        flag=2;
+    else
+    {
+        for (var i=8;i>=0;i--)
+        { 
+            l[s%10]++;
+            s/=10;
+            s=parseInt(s);
+        }
+        for (var i=8;i>=0;i--)
+        { 
+            if(l[i]!=1)
+            {
+                 flag=1;
+                 document.getElementById("startstate").value="";
+                 break;
+            }
+        }
+    }
+   
+   l=[0,0,0,0,0,0,0,0,0,1];
+   s=typeend;
+   if(isNaN(s)&&flag==2&&flag!=1)
+        flag=4;
+    else if(isNaN(s)&&flag!=1)
+    {
+        flag=3;
+    }
+    else
+    {
+        for (var i=8;i>=0;i--)
+        { 
+            l[s%10]++;
+            s/=10;
+            s=parseInt(s);
+        }
+        for (var i=8;i>=0;i--)
+        { 
+            if(l[i]!=1)
+            {
+                    flag=1;
+                    document.getElementById("endstate").value="";
+                    break;
+            }
+        }
+    }
+    console.log("flag"+flag)
+   if(flag==1)
+   {
+       alert("请输入正确的序列！");
+       return;
+   }
+   if(flag!=2&&flag!=4)
+   {
+        stt=parseInt(typeinit);
+        en=123804765;
+   }
+    if(flag!=3&&flag!=4)
+    {
+        en=parseInt(typeend);
+        array_right=getarray(en);
+        en_ni=checkans(en);
+    }
+    document.getElementById("startstate").value=""
+    document.getElementById("endstate").value=""
+    if(flag!=2&&flag!=4)
+        init_graph(1);
+    else
+        init_graph();
 }
 
 function ran()//产生一个符合条件的随机初始状态，可能无解
@@ -132,6 +215,7 @@ function astar()//执行A*算法
         return;
     }
     stt=current;
+    console.log("stt"+stt)
     tr=[];
     t1=2;
     statetoid=new Array();
@@ -139,25 +223,23 @@ function astar()//执行A*算法
     idtof=new Array();
     solvelist=[];
     searchlength=0;
-    en=123804765;
-    
-    if(checkans(stt))//按照是否有解划分内容
-        info.innerHTML=("计算中...部分算法可能较慢！");
-    if(checkans(stt))//按照是否有解划分内容
+    if(checkans(stt)==en_ni)//按照是否有解划分内容
     {
         console.log("time used:"+astartime1);
         
         let ax = new axing;
-        
-        ax.a1()
-        solvelist=ax.solve(en)
-        
+        const startTime = new Date();
+        ax.a1();
+        solvelist=ax.solve(en);
+        const finishedTime = new Date();
+        searchtime=finishedTime-startTime;
+        console.log(searchtime);
         console.log("solve");
         console.log(solvelist)
         console.log(searchlength)
         autoz=solvelist.length-1;
         nextz=solvelist.length-1;
-        info.innerHTML=("·初始状态："+stt+"<br>·目标状态："+en+"<br>·搜索序列长度："+searchlength+"<br>·解序列长度："+solvelist.length+"<br>·当前耗散值："+idtof[statetoid[current]]);
+        info.innerHTML=("·初始状态："+stt+"<br>·目标状态："+en+"<br>·搜索序列长度："+searchlength+"<br>·解序列长度："+solvelist.length+"<br>·当前耗散值："+idtof[statetoid[current]]+"<br>·搜索花费时间："+searchtime+"ms");
         auto.removeAttribute("disabled");
         pause.removeAttribute("disabled");
         next.removeAttribute("disabled");
@@ -173,7 +255,7 @@ function astar()//执行A*算法
     
 }
 
-function init_graph()//生成新的序列并初始化图像
+function init_graph(typein=0)//生成新的序列并初始化图像
 {
     // var c0=document.getElementById("choose0")
     // var c1=document.getElementById("choose1")
@@ -192,15 +274,18 @@ function init_graph()//生成新的序列并初始化图像
     console.log("init_graph");
     stopdraw()
     // astar();
-    stt=ran();
+    if(!typein)
+        stt=ran();
+    console.log("stt"+stt);
+    console.log("en"+en);
+    console.log(stt)
     searchlength=0;
-    // stt=508361247;
     current=stt;
     if(current==en)//判断是否达到目标状态
     {
         info.innerHTML=("·已经达到目标状态！")
     }
-    else if(!checkans(stt))
+    else if(checkans(stt)!=en_ni)
     {
         autoz=0;
         nextz=0;

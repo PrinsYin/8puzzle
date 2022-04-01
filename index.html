@@ -12,7 +12,7 @@
 </head>
 <body onload="init_graph()" style="background-color:rgb(228,228,228);">
     <!-- 加载完页面调用初始化函数 -->
-    <div class="container" style="width:1000px;">
+    <div class="container" style="width:1400px;">
         <div class="intro">
             <font style="font-family:Comic Sans Ms; font-size:40px;">
             Eight Puzzle Problem
@@ -26,7 +26,18 @@
             <br>
         </font>
         </div>
-
+        <div class="type">
+        <form class="form-horizontal" style="padding-top: 3px;" name="typestate">
+            <div class="form-group" style="font-family:font1; font-size:18px;">初始状态
+                <input type="text" class="form-block" id="startstate" placeholder="Random">
+              </div>
+              <div class="form-group" style="font-family:font1; font-size:18px;">终止状态
+                <input type="text" class="form-block" id="endstate" placeholder="123804765">
+              </div>
+                  <button class="btn btn-info subbutton" type="button" onclick="loaddata()">生成!</button>
+            </form>
+            
+        </div>
         <br>
         <div class="board">
             <!-- board装载图形化的八数码 -->
@@ -61,9 +72,12 @@
             <button type="button" id="next" class="btn btn-default btn-common" onclick="drawnext()" disabled="disabled">进入下一步</button>&nbsp;&nbsp;&nbsp;
             <button type="button" id="lll" class="btn btn-info" onclick="init_graph()">生成随机状态</button>
         </div>
+        <br>
         <div class="info" id="info">
-
         </div>
+        <br>
+    </div>
+    <div class="tree" id="tree">
     </div>
     <!-- 引用js文件 -->
     <script src="js/viz.min.js"></script>
@@ -75,5 +89,6 @@
     <script src="js/astar.js"></script>
     <!-- 图像显示和图像移动 -->
     <script src="js/display.js"></script>
+    <script src="js/tree.js"></script>
 </body>
 </html>

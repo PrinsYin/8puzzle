@@ -16,6 +16,7 @@
 
 .container{
     max-width: 750px;
+    /* 750 */
 }
 
 .control1
@@ -43,27 +44,46 @@
 .info
 {
     margin-left: 10px;
-    padding:10px;
+    padding:12px;
     height:180px;
     width:300px;
     background-color:khaki;
     float:left;
     z-index:0;
-    font-size:20px;
+    font-size: 17px;
     font-family: font1;
 }
 
-.container
+.tree
 {
-    width:800px;
+    height:410px;
+    width:410px;
+    float:left;
+    z-index:999;
 }
 
 .intro
 {
     float:left;
     background-color:rgb(228,228,228);
-    height:110px;
-    width: 720px;
-    margin-bottom: 10px;
+    height:105px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    width: 410px;
+    margin-bottom: 15px;
     text-align: center;
+}
+.type
+{
+    position:relative;
+    margin-left: 10px;
+    padding:10px;
+    height:105px;
+    width:300px;
+    line-height: 40px;
+    background-color:lightpink;
+    margin-bottom: 15px;
+    margin-top: 30px;
+    float:left;
+    z-index:0;
 }
