@@ -25,7 +25,7 @@
     padding:10px;
     height:125px;
     width:300px;
-    background-color:lightpink;
+    background-color:wheat;
     float:left;
     z-index:0;
 }
@@ -65,7 +65,7 @@
 .intro
 {
     float:left;
-    background-color:rgb(228,228,228);
+    background-color:rgb(242, 242, 242);
     height:105px;
     margin-bottom: 20px;
     margin-top: 30px;
