@@ -27,7 +27,7 @@ function getnum(l)
     num/=10;
     return num;
 }
-var choose=0;//启发式函数选择
+var choose;//启发式函数选择
 var tr=[];//存储树结构，指向父亲的序号，用来获得解序列 
 var t1=2;//标志位
 var statetoid=new Array();//状态对应到序号，树结构
@@ -110,9 +110,9 @@ class PriorityQueue//针对状态类构造优先队列结构
         }
         else if(check(val.sta,fa.sta,val.f))
              return;
+            
         // console.log(val)
         let t=this.queue;
-    //    console.log(t)
        if(t.length==0)
        {
             t.push(val);
@@ -130,7 +130,7 @@ class PriorityQueue//针对状态类构造优先队列结构
         }
         for (let i = 0; i <= t.length - 2; i++)
         {
-            if (t[i].f >= val.f && val.f <= t[i + 1].f)
+            if (t[i].f <= val.f && val.f <= t[i + 1].f)
             {
                 t.splice(i + 1, 0, val); 
                 return;
@@ -162,18 +162,28 @@ function hh(j)//启发式函数计算
     }   
     else if(choose==1)
     {
-        var endd=en;
+        var enddd=en;
+        var sum=0;
+        var jj=j;
         for (var i=8;i>=0;i--)
         { 
-            if(endd%10!=j%10)
+            if(jj%10==0)
+            {
+                jj/=10;
+                enddd/=10;
+                jj=parseInt(jj);
+                enddd=parseInt(enddd);
+                continue;
+            }
+           else if(enddd%10!=jj%10)
                 sum++;
-            j/=10;
-            endd/=10;
-            j=parseInt(j);
-            endd=parseInt(endd);
+            jj/=10;
+            enddd/=10;
+            jj=parseInt(jj);
+            enddd=parseInt(enddd);
         }
     }
-
+    
     return sum;
 }
 
@@ -301,7 +311,8 @@ class axing//A*算法类
                 }
                 else
                 {
-                    let ne=new sta(res,a.d+1);
+                    
+                    let ne=new sta(res,a.d+1);         
                     q.push1(ne,a)
                 }
             }
@@ -379,6 +390,8 @@ class axing//A*算法类
         // clocktime=setInterval(tim(),1);
         let ini = new sta(this.arr,0);
         let q = new PriorityQueue();
+        q.queue=[]
+        console.log(q)
         q.push1(ini,null);
         console.log(this.arr)
         while(1)
@@ -388,8 +401,8 @@ class axing//A*算法类
             {
                 var a=q.get1();
                 q.pop1();
-                 console.log(a.sta)
-                // console.log(a.f)
+                if(a.d<10)
+                 console.log(a.sta+":"+a.d+":"+a.f)
                 if(a.sta==en)
                     break;
                 this.findnext(a,q);

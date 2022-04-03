@@ -197,10 +197,10 @@ function tim()
     clocktime=setInterval("tim()",1);
 }
 
-function info1()
-{
-    info.innerHTML=("计算中...部分算法可能较慢！");
-}
+// function info1()
+// {
+//     info.innerHTML=("计算中...部分算法可能较慢！");
+// }
 
 function astar()//执行A*算法
 {
@@ -208,7 +208,6 @@ function astar()//执行A*算法
     // var auto=document.getElementById("auto")
     // var pause=document.getElementById("pause")
     // var next=document.getElementById("next")
-    info1();
     if(current==en)
     {
         info.innerHTML=("·已经达到目标状态！");
