@@ -219,6 +219,8 @@ function astar()//执行A*算法
     t1=2;
     statetoid=new Array();
     idtostate=new Array();
+    childnum=new Array();
+    solveid=new Array();
     idtof=new Array();
     solvelist=[];
     searchlength=0;
@@ -230,6 +232,7 @@ function astar()//执行A*算法
         const startTime = new Date();
         ax.a1();
         solvelist=ax.solve(en);
+        drawTree();
         const finishedTime = new Date();
         searchtime=finishedTime-startTime;
         console.log(searchtime);
@@ -248,7 +251,7 @@ function astar()//执行A*算法
     {
         autoz=0;
         nextz=0;
-        info.innerHTML=("·此状态<font color='red'>无解</font><br>·请选择生成随机状态<br>·可以点击随意移动滑块哦！")
+        info.innerHTML=("·此状态<font color='red'>无解</font><br>·请选择生成随机状态<br>·可以点击随意移动滑块哦！<br><br><font class='caution'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意:搜索树在新窗口中展示<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;搜索树庞大，加载需要一定时间！</font>")
     }
     
     
@@ -269,7 +272,7 @@ function init_graph(typein=0)//生成新的序列并初始化图像
     auto.setAttribute("disabled","disabled");
     pause.setAttribute("disabled","disabled");
     next.setAttribute("disabled","disabled");
-    info.innerHTML=("·此状态可解<br>·请选择启发式函数类型<br>·可以点击随意移动滑块哦！");
+    info.innerHTML=("·此状态可解<br>·请选择启发式函数类型<br>·可以点击随意移动滑块哦！<br><br><font class='caution'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意:搜索树在新窗口中展示<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;搜索树庞大，加载需要一定时间！</font>");
     console.log("init_graph");
     stopdraw()
     // astar();
@@ -288,7 +291,7 @@ function init_graph(typein=0)//生成新的序列并初始化图像
     {
         autoz=0;
         nextz=0;
-        info.innerHTML=("·此状态<font color='red'>无解</font><br>·请选择生成随机状态<br>·可以点击随意移动滑块哦！")
+        info.innerHTML=("·此状态<font color='red'>无解</font><br>·请选择生成随机状态<br>·可以点击随意移动滑块哦！<br><br><font class='caution'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意:搜索树在新窗口中展示<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;搜索树庞大，加载需要一定时间！</font>")
     }
     console.log(stt)
     array=getarray(stt);

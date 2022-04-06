@@ -10,9 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>8 puzzle problem</title>
 </head>
-<body onload="init_graph()" style="background-color:rgb(242, 242, 242);">
+<body onload="init_graph()" style="background-color:rgb(242, 242, 242); " >
     <!-- 加载完页面调用初始化函数 -->
-    <div class="container" style="width:1400px;">
+    <div class="container">
         <div class="intro">
             <font style="font-family:Comic Sans Ms; font-size:40px;">
             Eight Puzzle Problem
@@ -54,7 +54,8 @@
         </div>
         <!-- 启发式函数选择部分 -->
         <div class="control1">
-            选择搜索方式:
+            <font style="font-size:15px;">
+            选择搜索方式并生成搜索树:</font>
             <br>
             A*:
             <button type="button" id="choose0" class="btn btn-default btn-common" onclick="choose0()">曼哈顿距离</button>
@@ -77,15 +78,19 @@
         </div>
         <br>
     </div>
-    <div class="tree" id="tree">
-    </div>
     <!-- 引用js文件 -->
     <!-- 图像显示和图像移动 -->
     <!-- 初始化 -->
+    <script src="js\svg-pan-zoom.min.js"></script>
+    <!-- 图像显示和图像移动 -->
+    <script src="js/viz.min.js"></script>
+    
     <script src="js/init.js"></script>
     <!-- A*算法 -->
     <script src="js/astar.js"></script>
     <!-- 图像显示和图像移动 -->
     <script src="js/display.js"></script>
+    <!-- 图像显示和图像移动 -->
+    <script src="js/tree.js"></script>
 </body>
 </html>

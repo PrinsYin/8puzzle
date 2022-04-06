@@ -32,9 +32,11 @@ var tr=[];//存储树结构，指向父亲的序号，用来获得解序列
 var t1=2;//标志位
 var statetoid=new Array();//状态对应到序号，树结构
 var idtostate=new Array();//序号对应到状态，树结构
+var childnum=new Array();
 var idtof=new Array();//序号对应耗散值
+solveid=new Array();
 var en=123804765;//终止状态
-
+var solveid=[];
 
 function choose0()//按钮调用函数，选择启发式函数0
 {
@@ -86,9 +88,12 @@ function check(it,fa,f)//检查节点是否被重复遍历，如果没有同时�
     if(statetoid[it])
         return 1;
     statetoid[it]=t1;//为状态分配序号
+    childnum[t1]=0;
     idtostate[t1]=it;
     idtof[t1]=f;
+    childnum[statetoid[fa]]++;
     tr[t1]=statetoid[fa];//tr数组指向父亲的序号
+
     t1++;
     // console.log(it)
     // console.log(f)
@@ -107,6 +112,7 @@ class PriorityQueue//针对状态类构造优先队列结构
             statetoid[val.sta]=1;
             idtostate[1]=val.sta;
             idtof[1]=val.f;
+            childnum[1]=0;
         }
         else if(check(val.sta,fa.sta,val.f))
              return;
@@ -418,11 +424,14 @@ class axing//A*算法类
         var state=en;
         var i=0;
         var result=[];
+        solveid[1]=1;
         while(1)
         {
             result.push(state)
             // result.push(idtof[statetoid[state]])
+            solveid[statetoid[state]]=1;
             state=idtostate[tr[statetoid[state]]];
+
             if(state==stt)
             {
                 result.push(state)

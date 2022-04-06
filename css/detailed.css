@@ -54,7 +54,11 @@
     top:35px;
     
 }
-
+.caution
+{
+    font-size: 10px;
+    font-family: font1;
+}
 .block0
 {
     height: 110px;

@@ -179,10 +179,10 @@ function clickmove(x)//点击数字移动函数，判断移动的可行性并进
     {
         autoz=0;
         nextz=0;
-        info.innerHTML=("·此状态<font color='red'>无解</font><br>·请选择生成随机状态<br>·可以点击随意移动滑块哦！")
+        info.innerHTML=("·此状态<font color='red'>无解</font><br>·请选择生成随机状态<br>·可以点击随意移动滑块哦！<br><br><font class='caution'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意:搜索树在新窗口中展示<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;搜索树庞大，加载需要一定时间！</font>")
     }
     else
-        info.innerHTML=("·此状态可解<br>·请选择启发式函数类型！<br>·可以点击随意移动滑块哦！");
+        info.innerHTML=("·此状态可解<br>·请选择启发式函数类型！<br>·可以点击随意移动滑块哦！<br><br><font class='caution'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意:搜索树在新窗口中展示<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;搜索树庞大，加载需要一定时间！</font>");
     
 }
 
