@@ -95,6 +95,18 @@
     line-height: 20px;;
 }
 
+.btn-drawtree
+{
+    height:30px;
+    float:left;
+    line-height: 20px;
+    position: absolute;
+    right:10px;
+    top:50%;
+    z-index:999;
+}
+
+
 .btn-warning
 {
     height:35px;

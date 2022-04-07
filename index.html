@@ -55,15 +55,15 @@
         <!-- 启发式函数选择部分 -->
         <div class="control1">
             <font style="font-size:15px;">
-            选择搜索方式并生成搜索树:</font>
+            选择搜索方式:</font>
             <br>
+            <!-- <button type="button" id="drawtree" class="btn btn-default btn-drawtree" onclick="drawTree()">生成搜索树</button> -->
             A*:
             <button type="button" id="choose0" class="btn btn-default btn-common" onclick="choose0()">曼哈顿距离</button>
+            
             <button type="button" id="choose1" class="btn btn-default btn-common" onclick="choose1()">不在位棋子数</button>
             <!-- <button type="button" id="lll" class="btn btn-primary btn-confirm" onclick="">确认！</button> -->
             or:&nbsp;<button type="button" id="choose2" class="btn btn-default btn-common" onclick="choose2()">贪婪式搜索</button>
-            
-            
             <button type="button" id="choose3" class="btn btn-default btn-common" onclick="choose3()">广度优先搜索</button>
         </div>
         <!-- 演示、重置部分 -->

@@ -4,7 +4,9 @@
 
  function getdot()
  {
-    console.log(solveid)
+    console.log("t1"+t1)
+    if(t1>10000||t1<=1)
+        return;
      var dot='digraph g {\nsplines="line";\nnode [shape = record, height = .1];\n'
      for(var i=1;i<t1;i++)
      {
@@ -13,7 +15,6 @@
          dot=dot+array[0][0]+" "+array[0][1]+" "+array[0][2]+'\\'+'n';
          dot=dot+array[1][0]+" "+array[1][1]+" "+array[1][2]+'\\'+'n';
          dot=dot+array[2][0]+" "+array[2][1]+" "+array[2][2]+'\\'+'n';
-         
          if(solveid[i])
             dot+='", style=filled, fillcolor=pink] ;\n'
         else
@@ -38,6 +39,8 @@ function drawTree ()
  {
      
     const vizData = getdot();
+    if(t1>10000||t1<=1)
+        return;
     jsondata=JSON.stringify(vizData);
 	localStorage.setItem('viz',jsondata);  //对应方法2，将数据存储在HTML5的localStorage中。
     console.log('vizData=',vizData)

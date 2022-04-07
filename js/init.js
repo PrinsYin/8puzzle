@@ -38,6 +38,11 @@ var array_right=//目标状态
     [8,0,4],
     [7,6,5]
 ]
+var drawtree = document.createElement("button");
+drawtree.setAttribute("class","btn btn-warning btn-drawtree");
+drawtree.setAttribute("onclick","drawTree()");
+drawtree.innerHTML=("生成搜索树!");
+
 var searchtime;
 var stt;//起始状态
 posxi=[10,140,270];//用来进行方块移动等的定位
@@ -54,6 +59,7 @@ function stopdraw()//终止自动演示
     clearTimeout(timeout)
     autorunning=0;
 }
+
 
 function loaddata()//加载输入的数据
 {
@@ -232,7 +238,8 @@ function astar()//执行A*算法
         const startTime = new Date();
         ax.a1();
         solvelist=ax.solve(en);
-        drawTree();
+        
+            // drawTree();
         const finishedTime = new Date();
         searchtime=finishedTime-startTime;
         console.log(searchtime);
@@ -245,13 +252,16 @@ function astar()//执行A*算法
         auto.removeAttribute("disabled");
         pause.removeAttribute("disabled");
         next.removeAttribute("disabled");
-
+        if(t1<=10000&&t1>1)
+        {
+            document.getElementById("info").appendChild(drawtree);
+        }
     }
     else
     {
         autoz=0;
         nextz=0;
-        info.innerHTML=("·此状态<font color='red'>无解</font><br>·请选择生成随机状态<br>·可以点击随意移动滑块哦！<br><br><font class='caution'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意:搜索树在新窗口中展示<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;搜索树庞大，加载需要一定时间！</font>")
+        info.innerHTML=("·此状态<font color='red'>无解</font><br>·请选择生成随机状态<br>·可以点击随意移动滑块哦！<br><br><font class='caution'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注:部分搜索方式可能较慢<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;搜索序列过长不生成搜索树</font>");
     }
     
     
@@ -272,7 +282,7 @@ function init_graph(typein=0)//生成新的序列并初始化图像
     auto.setAttribute("disabled","disabled");
     pause.setAttribute("disabled","disabled");
     next.setAttribute("disabled","disabled");
-    info.innerHTML=("·此状态可解<br>·请选择启发式函数类型<br>·可以点击随意移动滑块哦！<br><br><font class='caution'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意:搜索树在新窗口中展示<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;搜索树庞大，加载需要一定时间！</font>");
+    info.innerHTML=("·此状态可解<br>·请选择搜索方式<br>·可以点击随意移动滑块哦！<br><br><font class='caution'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注:部分搜索方式可能较慢<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;搜索序列过长不生成搜索树</font>");
     console.log("init_graph");
     stopdraw()
     // astar();
@@ -291,7 +301,7 @@ function init_graph(typein=0)//生成新的序列并初始化图像
     {
         autoz=0;
         nextz=0;
-        info.innerHTML=("·此状态<font color='red'>无解</font><br>·请选择生成随机状态<br>·可以点击随意移动滑块哦！<br><br><font class='caution'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意:搜索树在新窗口中展示<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;搜索树庞大，加载需要一定时间！</font>")
+        info.innerHTML=("·此状态<font color='red'>无解</font><br>·请选择生成随机状态<br>·可以点击随意移动滑块哦！<br><br><font class='caution'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注:部分搜索方式可能较慢<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;搜索序列过长不生成搜索树</font>");
     }
     console.log(stt)
     array=getarray(stt);
