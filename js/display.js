@@ -99,6 +99,7 @@ function autodraw()//自动演示函数，随时更新内容
             }
             current=l;
             var info=document.getElementById("info")
+    
          info.innerHTML=("·初始状态："+stt+"<br>·目标状态："+en+"<br>·搜索序列长度："+searchlength+"<br>·解序列长度："+solvelist.length+"<br>·当前耗散值："+idtof[statetoid[current]]+"<br>·搜索花费时间："+searchtime+"ms");
     if(autoz<0)
     {
@@ -107,6 +108,11 @@ function autodraw()//自动演示函数，随时更新内容
     }
     else
         timeout=setTimeout("autodraw()",autotime);
+        if(t1<=10000&&t1>1)
+        {
+            document.getElementById("info").appendChild(drawtree);
+        }
+    
 }
 
 function clickmove(x)//点击数字移动函数，判断移动的可行性并进行移动
@@ -182,7 +188,8 @@ function clickmove(x)//点击数字移动函数，判断移动的可行性并进
         info.innerHTML=("·此状态<font color='red'>无解</font><br>·请选择生成随机状态<br>·可以点击随意移动滑块哦！<br><br><font class='caution'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注:部分搜索方式可能较慢<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;搜索序列过长不生成搜索树</font>");
     }
     else
-        info.innerHTML=("·此状态可解<br>·请选择搜索方式！<br>·可以点击随意移动滑块哦！<br><br><font class='caution'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注:部分搜索方式可能较慢<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;搜索序列过长不生成搜索树</font>");;
+        info.innerHTML=("·此状态可解<br>·请选择搜索方式！<br>·可以点击随意移动滑块哦！<br><br><font class='caution'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注:部分搜索方式可能较慢<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;搜索序列过长不生成搜索树</font>");
+        
     
 }
 
@@ -224,6 +231,10 @@ function drawnext()//下一步单步演示函数
         return;
     }
     else
-    ("·初始状态："+stt+"<br>·目标状态："+en+"<br>·搜索序列长度："+searchlength+"<br>·解序列长度："+solvelist.length+"<br>·当前耗散值："+idtof[statetoid[current]]+"<br>·搜索花费时间："+searchtime+"ms");
+    info.innerHTML=("·初始状态："+stt+"<br>·目标状态："+en+"<br>·搜索序列长度："+searchlength+"<br>·解序列长度："+solvelist.length+"<br>·当前耗散值："+idtof[statetoid[current]]+"<br>·搜索花费时间："+searchtime+"ms");
+    if(t1<=10000&&t1>1)
+        {
+            document.getElementById("info").appendChild(drawtree);
+        }
 }
 

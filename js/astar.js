@@ -87,6 +87,8 @@ function check(it,fa,f)//检查节点是否被重复遍历，如果没有同时�
 {
     if(statetoid[it])
         return 1;
+    if(en==it)
+        seadone=1;
     statetoid[it]=t1;//为状态分配序号
     childnum[t1]=0;
     idtostate[t1]=it;
@@ -264,7 +266,7 @@ class axing//A*算法类
         var list2;
         list2=list;
         var res=0;
-        if(h+1<=2)//上下左右分别试验
+        if(h+1<=2&&seadone==0)//上下左右分别试验
         {
             list2[h][l]=list2[h+1][l];
             list2[h+1][l]=0;
@@ -294,7 +296,7 @@ class axing//A*算法类
         }
         list2=list;
         res=0;
-        if(h-1>=0)
+        if(h-1>=0&&seadone==0)
         {
             list2[h][l]=list2[h-1][l];
             list2[h-1][l]=0;
@@ -325,7 +327,7 @@ class axing//A*算法类
         }
         list2=list;
         res=0;
-        if(l+1<=2)
+        if(l+1<=2&&seadone==0)
         {
             list2[h][l]=list2[h][l+1];
             list2[h][l+1]=0;
@@ -356,7 +358,7 @@ class axing//A*算法类
         list2=list;
         res=0;
         // console.log(h,l);
-        if(l-1>=0)
+        if(l-1>=0&&seadone==0)
         {
             // console.log("111")
             list2[h][l]=list2[h][l-1];
@@ -405,11 +407,13 @@ class axing//A*算法类
             // console.log(q)
             if(q.get1().sta)
             {
+                
                 var a=q.get1();
+                console.log("sta"+a.sta)
                 q.pop1();
                 if(a.d<10)
                  console.log(a.sta+":"+a.d+":"+a.f)
-                if(a.sta==en)
+                if(a.sta==en||seadone==1)
                     break;
                 this.findnext(a,q);
             }

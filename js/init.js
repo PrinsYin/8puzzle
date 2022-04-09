@@ -38,6 +38,7 @@ var array_right=//目标状态
     [8,0,4],
     [7,6,5]
 ]
+var seadone=0;
 var drawtree = document.createElement("button");
 drawtree.setAttribute("class","btn btn-warning btn-drawtree");
 drawtree.setAttribute("onclick","drawTree()");
@@ -189,19 +190,6 @@ function checkans(l)//判断序列是否无解
 var stoptime=0;
 var clocktime;
 var astartime1=0;
-function tim()
-{
-    astartime1++;
-    console.log( astartime1)
-    console.log( stoptime)
-    if(stoptime==1)
-    {
-        stoptime=0;
-        clearInterval(clocktime);
-        return;
-    }
-    clocktime=setInterval("tim()",1);
-}
 
 // function info1()
 // {
@@ -229,6 +217,7 @@ function astar()//执行A*算法
     solveid=new Array();
     idtof=new Array();
     solvelist=[];
+    seadone=0;
     searchlength=0;
     if(checkans(stt)==en_ni)//按照是否有解划分内容
     {

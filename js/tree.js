@@ -1,8 +1,4 @@
-/**
- * 初始化SVG缩放
- */
-
- function getdot()
+ function getdot()//将树转化为dot字符串
  {
     console.log("t1"+t1)
     if(t1>10000||t1<=1)
@@ -27,17 +23,15 @@
             dot=dot+'"node'+tr[i]+'" -> "node' +i+'"[style=filled, fillcolor=red] ;\n';
          else
             dot=dot+'"node'+tr[i]+'" -> "node' +i+'";\n';
-         
-            
      }
      dot+="}"
      return dot;
  }
 
 
-function drawTree ()
+function drawTree ()//字符串存储在localstorage
  {
-     
+    stopdraw();
     const vizData = getdot();
     if(t1>10000||t1<=1)
         return;

@@ -61,7 +61,7 @@
     position: absolute;
     top:100px;
     left:0;
-    height:50%;
+    height:100%;
     width:100%;
     z-index:999;
 }
@@ -69,7 +69,7 @@
 .intro
 {
     float:left;
-    background-color:rgb(242, 242, 242);
+    /* background-color:rgb(242, 242, 242); */
     height:105px;
     margin-bottom: 20px;
     margin-top: 30px;
